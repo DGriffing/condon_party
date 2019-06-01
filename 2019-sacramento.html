@@ -39,7 +39,7 @@
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+                        <input type="text" id="fname" name="firstname" placeholder="Your first name.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,7 @@
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
                     </div>
                     </div>
 
@@ -56,10 +56,12 @@
                         <label for="attending">Attending?</label>
                     </div>
                     <div class="col-75">
-                        <select id="attending" name="attending">
+                        <input type="radio" name="attending" value="YES"> Accept with pleasure<br>
+                        <input type="radio" name="attending" value="no"> Decline with regret<br>
+                        <!--<select id="attending" name="attending">
                         <option value="yes">Accepts with pleasure</option>
                         <option value="no">Declines with regret</option>
-                        </select>
+                        </select>-->
                     </div>
                     </div>
 
@@ -68,13 +70,15 @@
                         <label for="dietary">Dietary Restrictions</label>
                     </div>
                     <div class="col-75">
-                        <select id="dietary" name="dietary">
+                        <select name="dietary" id="dietary" onchange='CheckDiet(this.value);'>
                         <option value="none">None</option>
                         <option value="vegetarian">Vegetarian</option>
                         <option value="vegan">Vegan</option>
-                        <option value="fish">Pescatarian</option>
-                        <option value="nogluten">Gluten Free</option>
+                        <option value="pescatarian">Pescatarian</option>
+                        <option value="glutenfree">Gluten Free</option>
+                        <option value="allergies">Allergies / Other</option>
                         </select>
+                        <input type="text" name="allergies" id="allergies" placeholder="I avoid _____" style='display:none;'/>
                     </div>
                     </div>
                     <div class="row">
@@ -82,7 +86,7 @@
                         <label for="song">Song Requests</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="song" name="song" placeholder="Any jams that NEED to be on our playlist?" style="height:200px"></textarea>
+                        <textarea id="song" name="song" placeholder="Any jams that NEED to be on our playlist?" style="height:100px"></textarea>
                     </div>
                     </div>
                     <div class="row">
@@ -94,15 +98,28 @@
                 </form>
 
                 <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxXyb_UBfSNKtxIrlbxPVqW9ureObhs3IQpvtYXhGsTKZftV0s/exec'
-                const form = document.forms['submit-to-google-sheet']
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxXyb_UBfSNKtxIrlbxPVqW9ureObhs3IQpvtYXhGsTKZftV0s/exec'
+                    const form = document.forms['submit-to-google-sheet']
 
-                form.addEventListener('submit', e => {
-                    e.preventDefault()
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    .then(response => console.log('Success!', response))
-                    .catch(error => console.error('Error!', error.message))
-                })
+                    form.addEventListener('submit', e => {
+                        e.preventDefault()
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(response => console.log('Success!', response))
+                        .catch(error => console.error('Error!', error.message))
+                    })
+
+                    function CheckDiet(val){
+                        var element=document.getElementById('allergies');
+                        if(val=='allergies'){
+                            element.style.display='block';
+                            element.style.paddingTop='8px';
+
+                            element.style.marginTop='8px';
+                        }
+                        else  {
+                            element.style.display='none';
+                        }
+                    }
                 </script>
            </div>
        </div>
