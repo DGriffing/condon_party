@@ -23,7 +23,7 @@
         <div class="join">
             <h2>Join Us</h2>
             <p class="where">
-                June 14, 2019
+                4pm,  June 14 2019
                 <br>
                 Sacramento, California
             <p>
@@ -33,7 +33,7 @@
        <div class="rsvp">
            <h2>R S V P</h2>
            <div class="rsvp-form">
-                <form action="mailto:37condons@egmail.com" method="post" enctype="text/plain">
+                <form name="submit-to-google-sheet" enctype="text/plain">
                     <div class="row">
                     <div class="col-25">
                         <label for="fname">First Name</label>
@@ -79,10 +79,10 @@
                     </div>
                     <div class="row">
                     <div class="col-25">
-                        <label for="subject">Song Requests</label>
+                        <label for="song">Song Requests</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="subject" name="subject" placeholder="Any jams that NEED to be on our playlist?" style="height:200px"></textarea>
+                        <textarea id="song" name="song" placeholder="Any jams that NEED to be on our playlist?" style="height:200px"></textarea>
                     </div>
                     </div>
                     <div class="row">
@@ -92,6 +92,18 @@
                         </div>
                     </div>
                 </form>
+
+                <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxXyb_UBfSNKtxIrlbxPVqW9ureObhs3IQpvtYXhGsTKZftV0s/exec'
+                const form = document.forms['submit-to-google-sheet']
+
+                form.addEventListener('submit', e => {
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+                })
+                </script>
            </div>
        </div>
        <div class="details">
@@ -112,3 +124,7 @@
     </footer>
 </body>
 </html>
+
+
+
+
