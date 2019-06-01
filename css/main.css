@@ -2,6 +2,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400);
 @import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:300);
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
@@ -23,10 +27,14 @@ h1 {
 	font-size: 30px;
     text-align: center;
 	color: #333333;
-	font-family: Raleway, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: 'Noto Serif', serif;
+}
+h2 {
+	text-align: center;
+	font-family: 'Noto Serif', serif;
 }
 
-.Header {
+.header {
 	padding-top: 300px;
 	background-color: #414541;
     text-align: center;
@@ -39,50 +47,86 @@ h1 {
   	background-attachment: fixed;
   	background-position: center; 
 }
-.Header h1 {
-	display: none;
-}
-.topnav {
-	z-index: 1;
+.sac-header {
+	min-height: 100px;
+	background-color: #414541;
+	padding: 10px;
     text-align: center;
 	width: 100%;
-	height: 24px;
 }
-.topnav a {
-	color: #000000;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 20px 32px;
-	text-decoration: none;
+.sac-header h1 {
+	color: white;
+	font-family: 'Great Vibes', cursive;
+	font-size: 30px;
 }
-.topnav a:hover {
-	text-decoration: none;
-	color: #ad9ba7;
+.header h1 {
+	display: none;
 }
-.topnav a.active {
-	font-weight: 900;
-	color: #4a3642;
-	text-decoration: underline;
+.names {
+	font-family: 'Great Vibes', cursive;
+	font-size: 50px;
+	color: #414541;
 }
 .exclude {
 	display: none;
 }
-.bio, .skills, .contact {
+.celebrate, .which, .story, .details, .rsvp{
 	padding: 24px 24px;
 }
-.divide {
-	margin: 0px 24px;
+.where, .rsvp-form {
+	margin-top: 5px;
+	max-width: 90%;
+	margin: 0 auto !important;
+	float: none !important;		
 }
-.stick {
-	width: 80%;
+.rsvp-form {
+	background-color: #eeeddd;
+	padding: 8px;
+}
+.adjustable {
+	resize: both;
+  	overflow: auto;
+}
+.buttons {
+	display: flex;
+	justify-content: center;
+	padding-top: 30px;
+}
+#left-button {
+	margin-right: 5px;
+}
+#right-button {
+	margin-left: 5px;
+}
+.button {
+  background-color: #414541;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover {
+	background-color: black;
+}
+.story p {
+	margin-top: 10px;
+	font-family: 'Roboto Mono', monospace;
+}
+.where {
+	text-align: center;
+	padding-top: 8px;
+}
+.details {
 	max-width: 300px;
-	opacity: 0.7;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
-.big-stick {
-	display: none;
+.divide {
+	margin: 0px 24px;
 }
 .columns{
 	margin: 0px 30px;
@@ -100,11 +144,17 @@ h1 {
 	display: table;
 	clear: both;
 }
-.skill-list {
-	list-style-type: circle;
-}
 .animoji {
 	max-width: 100%;
+}
+.us {
+	display: flex;
+	justify-content: center;
+}
+.us-image {
+	max-width: 50%;
+	width: 200px;
+	height: 200px;
 }
 footer {
   	height: 108px;
@@ -125,35 +175,40 @@ footer {
 	margin-right: auto;
 }
 
-
-
-
 @media screen and (min-width: 768px){
 	body {
 		font-size: 20px;
 	}
-	.topnav a {
-		font-size: 20px;
-		padding: 20px 40px;
-	}
-	.Header {
+	.header {
 		padding-top: 500px;
 		width: 100%;
 		min-height: 700px;
         background-repeat: no-repeat;
         background-size: cover;
 	}
-	.Header h1 {
+	.sac-header {
+		min-height: 150px;
+		padding: 30px;
+	}
+	.sac-header h1 {
+		font-size: 48px;
+	}
+	.header h1 {
 		color: white;
 		font-weight: 900;
 		text-align: center;
 		display: block;
+		font-size: 40px;
 	}
-	.Header p {
+	.header p {
 		text-align: center;
 	}
 	h4 {
 		font-size: 24px;
+	}
+	.names {
+		font-size: 70px;
+		margin-top: 30px;
 	}
 	.columns {
 		margin: 0px 60px;
@@ -166,24 +221,73 @@ footer {
 	.skill-list {
 		display: none;
 	}
-	.bio, .skills, .contact {
+	.celebrate, .which, .story,{
 		padding: 48px 48px;
 		max-width: 960px;
 		margin: 0 auto !important;
 		float: none !important;
 	}
-	.stick {
-		display: none;
-	}
-	.big-stick {
-		width: 60%;
-		max-width: 600px;
-		opacity: 0.8;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
 	.animoji {
 		max-width: 300px;
 	}
+	.details p, .story p, .buttons {
+		margin-top: 20px;
+		max-width: 960px;
+		margin: 0 auto !important;
+		float: none !important;		
+	}
+	.details {
+		max-width: 400px;
+	}
+}
+
+/*RSVP FORM STYLE*/
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.rsvp-form {
+  border-radius: 10px;
+  background-color: #eeeddd;
+  padding: 30px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75 {
+    width: 100%;
+    margin-top: 0;
+  }
 }
