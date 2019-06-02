@@ -33,7 +33,7 @@ h2 {
 .header h1 {
 	display: none;
 }
-.header-image {
+#header-image {
 	width: 100%;
   	z-index: 0;
 }
@@ -137,7 +137,7 @@ h2 {
 .us-image {
 	width: 200px;
 }
-.photography {
+#photography {
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	padding: 5px;
@@ -147,7 +147,7 @@ footer {
   	height: 108px;
 	text-align: center;
 	background-color: #b2b995;
-	font-size: 16px;
+	font-size: 14px;
 	padding-right: 16px;
 	padding-top: 16px;
 	padding-bottom: 16px;
@@ -185,7 +185,7 @@ footer {
 		display: block;
 		font-size: 40px;
 	}
-	.header-image{
+	#header-image{
 		display: none;
 		height: 0px;
 		width: 0px;
@@ -241,9 +241,12 @@ footer {
 		width: 400px;
 		max-height: 400px
 	}
-	.photography {
+	#photography {
 		width: 500px;
 		max-height: 400px;
+	}
+	footer {
+		font-size: 16px;
 	}
 }
 
